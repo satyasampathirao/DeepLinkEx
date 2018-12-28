@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.admin.deeplinkex">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".FirstActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+
+                <!--
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.host.com" android:scheme="http"/>
+                -->
+
+            </intent-filter>
+        </activity>
+        <activity android:name=".SecondActivity">
+            <intent-filter>
+
+                <!-- Sets the intent action to view the activity -->
+                <action android:name="android.intent.action.VIEW" />
+                <!-- Allows the link to be opened from a web browser -->
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Allows the deep link to be used without specifying the app name -->
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <!-- to handle  http://www.example.com/football -->
+                <data
+                    android:scheme="http"
+                    android:host="www.example.com"
+                    android:pathPrefix="/football"
+                     />
+
+                <!-- to handle  http://www.example.com/gizmos -->
+                <data
+                    android:scheme="http"
+                    android:host="www.example.com"
+                    android:pathPrefix="/gizmos"
+                     />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ThirdActivity">
+            <intent-filter>
+
+                <!-- Sets the intent action to view the activity -->
+                <action android:name="android.intent.action.VIEW" />
+                <!-- Allows the link to be opened from a web browser -->
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Allows the deep link to be used without specifying the app name -->
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <!-- to handle  http://www.example.com/cricket?data=12345 -->
+                <data
+                    android:scheme="http"
+                    android:host="www.example.com"
+                    android:pathPrefix="/cricket"
+                     />
+
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
